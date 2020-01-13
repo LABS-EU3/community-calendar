@@ -5,16 +5,13 @@ import axios from 'axios';
 import { Button } from '../../atoms/Button';
 import AuthNavBar from '../AuthNavBar';
 import Input from '../../atoms/Input';
+import { NavBarAlt } from "../../molecules/Navbar/index.stories";
+import { inputLarge as Input } from "../../atoms/Input/index.stories";
 
 export const BorderDiv = styled.div`
-  width: 350px;
-  height: 450px;
-  margin: 0 auto;
-  background: #ffffff;
-  border: 1px solid #cec8c8;
-  box-sizing: border-box;
-  padding-top: 1rem;
-`;
+  width: 385px;
+  height: 470px;
+`
 export const InputDiv = styled.div`
   margin-bottom: 1.2rem;
 `;
