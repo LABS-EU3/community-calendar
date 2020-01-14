@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch';
 
 import * as types from '../constants/events';
+import { API_URL } from '../../config/environment';
 
 export const fetchEventsRequest = payload => ({
   type: types.FETCH_EVENT_REQUEST,
@@ -30,7 +31,7 @@ export const doFetchEvent = (userCountry, userCity, eventType) => dispatch => {
     }),
   };
   // utilize fetch here since axios won't work here. refer to: https://stackoverflow.com/questions/56721660/how-to-fix-error-request-failed-with-status-code-404-in-axios-next-js
-  fetch('https://comcalstaging.herokuapp.com/api/v1/event/fetch-events', config)
+  fetch(`${API_URL}/api/v1/event/fetch-events`, config)
     .then(res => res.json())
     .then(data => {
       dispatch(fetchEventsSuccess(data));
