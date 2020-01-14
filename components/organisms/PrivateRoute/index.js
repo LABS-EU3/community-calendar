@@ -8,9 +8,9 @@ const PrivateRoute = ({ children }) => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      Router.push('/login');
+      Router.push('/signin');
     }
-  });
+  }, []);
 
   return <>{children}</>;
 };

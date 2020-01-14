@@ -11,6 +11,12 @@ export const NavBarDiv = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 2 rem;
+    a{
+      padding-right: 2rem;
+      Button{
+        background-color: #9c0d38;
+      }
+    }
     .imgHolder {
       width: 3rem;
       height: 3rem;

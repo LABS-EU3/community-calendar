@@ -94,6 +94,7 @@ export const EventCardAltDiv = styled.div`
   }
   div#description {
     margin-top: 1rem;
+    word-wrap: break-word;
     p {
       margin: .8rem 0;
     }

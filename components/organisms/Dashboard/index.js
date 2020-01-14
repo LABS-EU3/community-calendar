@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 // import GlobalStyle from '../../../styles/GlobalStyles';
+
 import NavBarDashboard from '../../molecules/NavbarDashboard';
 
 const Dashboard = () => {
-  const user = useSelector(state => state);
-  const userInfo = user.login.user;
+  // const user = useSelector(state => state);
+  // const userInfo = user.login.user;
 
   return (
     <>
@@ -16,7 +17,7 @@ const Dashboard = () => {
           <div className="imgHolder" />
           <UserBioDiv>
             <h2>
-              {`${userInfo.user.first_name} ${userInfo.user.last_name}`}
+              {/* {`${userInfo.user.first_name} ${userInfo.user.last_name}`} */}
             </h2>
             <div className="datelocation">
               <p>

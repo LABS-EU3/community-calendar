@@ -1,41 +1,39 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
-import axios from 'axios';
 import { Button } from '../../atoms/Button';
-import AuthNavBar from '../AuthNavBar';
+import NavBar from '../../molecules/Navbar';
+import Label from '../../atoms/Label';
+import Paragraph from '../../atoms/Paragraph';
 import Input from '../../atoms/Input';
+import { colors } from '../../~reusables';
+import { doSignUp } from '../../../redux/actions/signUp';
 
 export const BorderDiv = styled.div`
   width: 350px;
-  height: 450px;
+  height: auto;
   margin: 0 auto;
   background: #ffffff;
   border: 1px solid #cec8c8;
   box-sizing: border-box;
-  padding-top: 1rem;
-`;
-export const InputDiv = styled.div`
-  margin-bottom: 1.2rem;
-`;
-export const Label = styled.div`
-  font-family: Montserrat;
-  font-weight: bold;
-  font-size: 16px;
+  padding: 2.5rem 0;
+  border-radius: 20px;
 `;
 
-export const Paragraph = styled.p`
-  margin-bottom: 0.8rem;
-  margin-top: 5px;
-  margin-right: 7rem;
+export const InputDiv = styled.div`
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
 `;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-export const Register = () => {
+const SignUpForm = ({ doSignUp }) => {
   const initialState = {
     first_name: '',
     last_name: '',
@@ -50,31 +48,26 @@ export const Register = () => {
     SetCredentials({ ...credentials, [name]: value });
   };
 
-  const handleSubmit = (e, newUser) => {
-    e.preventDefault();
-    axios
-      .post(
-        'https://comcalstaging.herokuapp.com/api/v1/users/register',
-        newUser,
-      )
-      .then(data => {
-        console.log(data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  const handleSubmit = (event, newUser) => {
+    event.preventDefault();
+    console.log(newUser);
+    doSignUp(newUser);
   };
 
   return (
     <div>
-      <AuthNavBar />
+      <NavBar notSignedIn />
       <BorderDiv>
-        <Form onSubmit={e => handleSubmit(e, credentials)}>
+        <Form onSubmit={event => handleSubmit(event, credentials)}>
           <InputDiv>
-            <Label>FirstName</Label>
+            <Label
+              medium
+              weight="bold"
+            >
+              FirstName
+            </Label>
             <Input
-              style={{ width: '250px' }}
-              large
+              xLarge
               type="text"
               onChange={handleChange}
               name="first_name"
@@ -82,10 +75,14 @@ export const Register = () => {
             />
           </InputDiv>
           <InputDiv>
-            <Label>LastName</Label>
+            <Label
+              medium
+              weight="bold"
+            >
+              LastName
+            </Label>
             <Input
-              style={{ width: '250px' }}
-              large
+              xLarge
               type="text"
               onChange={handleChange}
               name="last_name"
@@ -93,10 +90,14 @@ export const Register = () => {
             />
           </InputDiv>
           <InputDiv>
-            <Label>Username</Label>
+            <Label
+              medium
+              weight="bold"
+            >
+              Username
+            </Label>
             <Input
-              style={{ width: '250px' }}
-              large
+              xLarge
               type="text"
               onChange={handleChange}
               name="username"
@@ -105,10 +106,14 @@ export const Register = () => {
           </InputDiv>
 
           <InputDiv>
-            <Label>Email address</Label>
+            <Label
+              medium
+              weight="bold"
+            >
+              Email address
+            </Label>
             <Input
-              style={{ width: '250px' }}
-              large
+              xLarge
               type="text"
               onChange={handleChange}
               name="email"
@@ -117,22 +122,27 @@ export const Register = () => {
           </InputDiv>
 
           <InputDiv>
-            <Label>Password</Label>
+            <Label
+              medium
+              weight="bold"
+            >
+              Password
+            </Label>
             <Input
-              style={{ width: '250px' }}
-              large
-              type="text"
+              xLarge
+              type="password"
               onChange={handleChange}
               name="password"
               value={credentials.password}
             />
           </InputDiv>
-          <Paragraph>Lagos,NG(Change)</Paragraph>
+          <Paragraph>
+            Lagos,NG(Change)
+          </Paragraph>
+          <br />
           <Button
-            large
-            style={{
-              fontSize: '16px', width: '250px', height: '40px', backgroundColor: '#CE5374', padding: '5px',
-            }}
+            xLarge
+            background={colors.primary}
           >
             Sign up
           </Button>
@@ -141,3 +151,5 @@ export const Register = () => {
     </div>
   );
 };
+
+export default connect(state => state, { doSignUp })(SignUpForm);

@@ -13,19 +13,25 @@ export const Button = styled.button`
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
 
+    ${props => props.xLarge && css`
+      font-weight: 600;
+      font-size: 1.5rem;
+      width: 25rem;
+    `};
+
     ${props => props.large && css`
-    font-weight: 600;
-    font-size: 2rem;
+      font-weight: 600;
+      font-size: 2rem;
     `};
 
     ${props => props.medium && css`
-    font-weight: 500;
-    font-size: 1.75rem;
+      font-weight: 500;
+      font-size: 1.75rem;
     `};
 
     ${props => props.small && css`
-    font-weight: 400;
-    font-size: 1.5rem;
+      font-weight: 400;
+      font-size: 1.5rem;
     `};
   `;
 

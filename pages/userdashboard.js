@@ -1,11 +1,13 @@
 import React from 'react';
-import {withRouter} from 'next/router';
+
 import Dashboard from '../components/organisms/Dashboard';
+import PrivateRoute from '../components/organisms/PrivateRoute';
 
 const UserDashboard = () => (
-  <div>
+  <PrivateRoute>
     <Dashboard />
-  </div>
+  </PrivateRoute>
 );
 
-export default withRouter(UserDashboard);
+export default UserDashboard;
+

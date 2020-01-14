@@ -10,6 +10,6 @@ export const NavBarDiv = styled.div`
   nav {
     width: 30%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 `;

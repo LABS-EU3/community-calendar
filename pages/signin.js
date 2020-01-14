@@ -1,12 +1,13 @@
 import React from 'react';
-import { Login } from '../components/organisms/Login';
+import SignInForm from '../components/organisms/SignInForm';
 import GlobalStyles from '../styles/GlobalStyles';
 
 const SignIn = () => (
   <div>
     <GlobalStyles />
-    <Login />
+    <SignInForm />
   </div>
 );
 
 export default SignIn;
+

@@ -1,12 +1,13 @@
 import React from 'react';
-import { Register } from '../components/organisms/signup';
+import SignUpForm from '../components/organisms/SignUpForm';
 import GlobalStyles from '../styles/GlobalStyles';
 
 const Signup = () => (
   <div>
     <GlobalStyles />
-    <Register />
+    <SignUpForm />
   </div>
 );
 
 export default Signup;
+

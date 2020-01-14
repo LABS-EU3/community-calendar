@@ -3,15 +3,13 @@ import Cookie from 'js-cookie';
 
 export const Auth = {
   isAuthenticated() {
-    const eventAuthToken = Cookie.get('event-auth-token');
+    const eventAuthToken = Cookie.get('comcal-event-token');
     if (!eventAuthToken) return false;
 
     const decodedToken = jwtDecode(eventAuthToken);
 
-    if (!decodedToken
-      || !decodedToken.expiresIn
-    ) return false;
+    if (!decodedToken || !decodedToken.id || !decodedToken.exp) return false;
 
-    return decodedToken.expiresIn > Date.now() / 1000;
+    return decodedToken.exp > Date.now() / 1000;
   },
 };

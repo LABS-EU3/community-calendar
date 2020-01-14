@@ -1,16 +1,26 @@
 import React from 'react';
+import Link from 'next/link';
 
 import { Icon } from 'antd';
 import { NavBarDiv } from './index.styled';
 import { Logo } from '../../atoms/Logo';
+import { Button } from '../../atoms/Button';
+import { colors } from '../../~reusables';
 
 const NavBarDashboard = () => (
   <NavBarDiv>
     <Logo />
     <nav>
-      <Icon type="bell" class="bell" />
+      <Link href="/">
+        <a>
+          <Button>
+              Home
+          </Button>
+        </a>
+      </Link>
+      <Icon type="bell" className="bell" />
       <div className="imgHolder" />
-      <Icon type="down" class="down" />
+      <Icon type="down" className="down" />
     </nav>
   </NavBarDiv>
 );

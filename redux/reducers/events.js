@@ -1,25 +1,25 @@
-import * as types from '../constants/login.constants';
+import * as types from '../constants/events';
 
 const initialState = {
   requesting: false,
-  user: {},
+  events: [],
   error: null,
 };
 
-export default function reducer(state = initialState, action) {
+export default function fetchEvents(state = initialState, action) {
   switch (action.type) {
-    case types.LOGIN_REQUEST:
+    case types.FETCH_EVENT_REQUEST:
       return {
         ...state,
         requesting: action.payload,
       };
-    case types.LOGIN_SUCCESS:
+    case types.FETCH_EVENT_SUCCESS:
       return {
         ...state,
         requesting: false,
-        user: action.payload,
+        events: action.payload,
       };
-    case types.LOGIN_ERROR:
+    case types.FETCH_EVENT_ERROR:
       return {
         ...state,
         requesting: false,

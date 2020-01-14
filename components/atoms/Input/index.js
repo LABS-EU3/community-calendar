@@ -1,16 +1,15 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 const Input = styled.input`
   background: #F1EDED;
   border: 0.5px solid #716969;
   outline: none;
-  padding: 0 .5rem;
+  padding: 0 1.5rem;
   height: 3.3rem;
   font-size: 1.6rem;
 
-  ${props =>
-    props.search &&
-    css`
+  ${props => props.search
+    && css`
       outline: 0;
       border: 0;
       border-bottom: 0.5px solid #716969;
@@ -38,27 +37,29 @@ const Input = styled.input`
     }
   }
 
-  ${props =>
-    props.small &&
-    css`
+  ${props => props.small
+    && css`
       width: 6rem;
     `}
 
-  ${props =>
-    props.medium &&
-    css`
+  ${props => props.medium
+    && css`
       width: 14rem;
     `}
 
-  ${props =>
-    props.large &&
-    css`
+  ${props => props.large
+    && css`
       width: 20rem;
     `}
 
-  ${props =>
-    props.disabled &&
-    css`
+  ${props => props.xLarge
+  && css`
+    width: 25rem;
+    border-radius: 20px;
+  `}
+
+  ${props => props.disabled
+    && css`
       background: #dddddd;
       cursor: not-allowed;
     `}
