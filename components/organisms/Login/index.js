@@ -33,7 +33,7 @@ export const Login = (props) => {
     )
       .then(({ data }) => {
         dispatch(loginStatus(data));
-        Router.push('/UserDashboard')
+        Router.push('/UserDashboard');
       });
   };
   return (
