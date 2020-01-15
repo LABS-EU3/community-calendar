@@ -5,7 +5,6 @@ import { Icon } from 'antd';
 import { NavBarDiv } from './index.styled';
 import { Logo } from '../../atoms/Logo';
 import { Button } from '../../atoms/Button';
-import { colors } from '../../~reusables';
 
 const NavBarDashboard = () => (
   <NavBarDiv>
