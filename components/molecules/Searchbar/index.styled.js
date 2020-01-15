@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colors } from '../../~reusables';
 
 export const SearchBarDiv = styled.div`
-  width: 60rem;
+  width: 63rem;
   height: 6rem;
   margin: 0 auto;
   padding: .5rem 1.25rem;

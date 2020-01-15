@@ -1,26 +1,20 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { doSignIn } from '../../../redux/actions/signIn';
 import { Button } from '../../atoms/Button';
 import NavBar from '../../molecules/Navbar';
 import Input from '../../atoms/Input';
 import Label from '../../atoms/Label';
-import { InputDiv, Form, BorderDiv } from '../SignUpForm';
+import * as Styles from '../SignUpForm/index.styled';
+import { StyledDiv, Paragraph } from './index.styled';
 import { colors } from '../../~reusables';
 
-const StyledDiv = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: 1rem;
-  margin-right: 6rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-`;
-const Paragraph = styled.p``;
-
-const SignInForm = ({ doSignIn, requesting, error, userData }) => {
+const SignInForm = ({
+  // eslint-disable-next-line no-shadow
+  doSignIn, requesting, userData,
+}) => {
   const initialState = {
     username: '',
     password: '',
@@ -38,13 +32,13 @@ const SignInForm = ({ doSignIn, requesting, error, userData }) => {
     doSignIn(user);
   };
   return (
-    <div>
-      { requesting && <h3>Requesting</h3>}
-      { userData && <h3>Requesting</h3>}
+    <Styles.PageWrapper>
+      {requesting && <h3>Requesting</h3>}
+      {userData && <h3>Requesting</h3>}
       <NavBar notLoggedIn />
-      <BorderDiv>
-        <Form onSubmit={event => handleSubmit(event, credentials)}>
-          <InputDiv>
+      <Styles.BorderDiv>
+        <Styles.Form onSubmit={event => handleSubmit(event, credentials)}>
+          <Styles.InputDiv>
             <Label
               medium
               weight="bold"
@@ -58,9 +52,8 @@ const SignInForm = ({ doSignIn, requesting, error, userData }) => {
               name="username"
               value={credentials.username}
             />
-          </InputDiv>
-
-          <InputDiv>
+          </Styles.InputDiv>
+          <Styles.InputDiv>
             <Label
               medium
               weight="bold"
@@ -74,7 +67,7 @@ const SignInForm = ({ doSignIn, requesting, error, userData }) => {
               name="password"
               value={credentials.password}
             />
-          </InputDiv>
+          </Styles.InputDiv>
           <StyledDiv>
             <Input xLarge type="checkbox" />
             <Paragraph>Remember me</Paragraph>
@@ -85,11 +78,19 @@ const SignInForm = ({ doSignIn, requesting, error, userData }) => {
           >
             Login
           </Button>
-        </Form>
-      </BorderDiv>
-    </div>
+        </Styles.Form>
+      </Styles.BorderDiv>
+    </Styles.PageWrapper>
   );
 };
+
+SignInForm.propTypes = {
+  doSignIn: PropTypes.func.isRequired,
+  requesting: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  userData: PropTypes.object.isRequired,
+};
+
 
 const mapStateToProps = state => ({
   requesting: state.signIn.requesting,
