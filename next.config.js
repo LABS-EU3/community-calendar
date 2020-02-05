@@ -37,6 +37,7 @@ module.exports = withLess({
     }
     return config
   },
+  exportTrailingSlash: true,
   exportPathMap: async function(
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
