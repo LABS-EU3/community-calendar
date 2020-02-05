@@ -37,4 +37,16 @@ module.exports = withLess({
     }
     return config
   },
+  exportPathMap: async function(
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      '/': { page: '/' },
+      '/signin': { page: '/signin' },
+      '/signup': { page: '/signup' },
+      '/userdashboard': { page: '/userdashboard' },
+      '/event': { page: '/event' },
+    }
+  },
 })
